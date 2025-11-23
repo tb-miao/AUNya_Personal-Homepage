@@ -1,0 +1,297 @@
+/* 妯箙鍖哄煙鏍峰紡 */
+.banner {
+    height: 450px;
+    background: linear-gradient(135deg, #1e9fff 0%, #0081cc 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,224L48,218.7C96,213,192,203,288,197.3C384,192,480,192,576,202.7C672,213,768,235,864,234.7C960,235,1056,213,1152,197.3C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+    background-size: cover;
+}
+
+.banner-content {
+    max-width: 800px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.banner-logo img {
+    width: 64px
+}
+
+.banner h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.banner p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.banner-action {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.banner-action a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    line-height: 45px;
+    min-width: 160px;
+    margin: 0;
+    padding: 0 25px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.banner-action a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #fff;
+    transform: translateY(-1px);
+}
+
+.banner-action a i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+/* 鍗＄墖鍖哄煙鏍峰紡 */
+.section {
+    padding: 30px 0;
+}
+
+.card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.card-col {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 15px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-title a:hover {
+    color: #1e9fff;
+}
+
+.card-title img {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    transform: translateY(-10%);
+}
+
+.card-hr {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+.card-button {
+    margin-top: 10px;
+}
+
+/* 鍙嬫儏閾炬帴鏍峰紡 */
+.links-section {
+    background-color: #f1f6f9;
+}
+
+.links-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.links-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.links-col {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 15px;
+}
+
+.links-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.links-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.links-content {
+    padding: 25px;
+}
+
+.links-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.links-title i {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1e9fff;
+}
+
+.links-hr {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.links-grid p {
+    margin-right: 20px;
+}
+
+.links-grid img {
+    width: 18px;
+    height: 18px;
+    margin-right: 3px;
+    transform: translateY(-15%);
+}
+
+.links-grid a:hover {
+    color: #1e9fff;
+}
+
+/* 鍝嶅簲寮忚皟鏁� */
+@media (max-width: 991px) {
+    .card-col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .banner h1 {
+        font-size: 36px;
+    }
+    
+    .banner p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .banner {
+        height: 400px;
+    }
+    
+    .banner-logo img {
+        width: 48px
+    }
+    
+    .banner h1 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 380px;
+    }
+    
+    .banner-logo img {
+        width: 48px
+    }
+    
+    .banner h1 {
+        font-size: 24px;
+    }
+    
+    .banner p {
+        font-size: 14px;
+    }
+    
+    .banner-action a {
+        min-width: 140px;
+        padding: 0 15px;
+    }
+}

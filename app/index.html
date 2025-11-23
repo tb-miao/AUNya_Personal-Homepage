@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/172878250?v=4">
+    <meta name="description" content="欢迎来到AUNya的奇妙世界！">
+    <meta name="keywords" content="AUNya,aunya,个人主页,个人网站,aunya个人主页">
+    <title>应用 -- AUNya - 奇妙世界</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <!-- 引入Layui CSS -->
+    <link rel="stylesheet" href="./static/layui/css/layui.css">
+    <!-- 引入Layui JS -->
+    <script src="./static/layui/layui.js"></script>
+    <!-- 引入Jquery JS -->
+    <script src="./static/js/jquery.min.js"></script>
+    <script src="./static/js/yuin.js"></script>
+<style type="text/css">span.view-image{cursor:zoom-in;}</style>
+<style>
+
+/* 卡片区域样式 */
+.layui-table a {
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+.section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card-bg {
+    background-image: url(https://tbmiao.dpdns.org/images/lt/b.png);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 25px;
+}
+
+.card-title {
+    color: #333;
+    text-align:center;
+}
+
+.card-title h3 {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.card-title p {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.card-title span {
+    margin-right: 10px;
+}
+
+.card-title i {
+    color: #fff;
+    font-size: 14px;
+    margin-right: 3px;
+}
+</style>
+</head>
+<body>
+<!-- 导航栏 -->
+<header class="header">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="/">
+                <img src="https://avatars.githubusercontent.com/u/172878250?v=4" alt="CoolCat Logo">
+            </a> 
+            <a href="/">AUNya<span></span>®</a>
+        </div>
+        
+        <!-- 汉堡菜单按钮 -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <!-- 桌面导航菜单 -->
+        <ul class="nav-menu">
+            <li><a href="/">首页</a></li>
+            <li><a href="/app/">应用</a></li>
+            <li><a href="https://tbmiao.dpdns.org/about/">关于</a></li>
+        </ul>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <div class="mobile-nav-menu" id="mobileNavMenu">
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/app/">应用</a></li>
+            <li><a href="https://tbmiao.dpdns.org/about/">关于</a></li>
+        </ul>
+    </div>
+</header>
+<!-- 应用标题卡片区域 -->
+<section style="margin-top: 110px;margin-bottom: 10px;">
+    <div class="card-container">
+        <div class="card card-bg">
+            <div class="card-content">
+                <div class="card-title">
+                    <h3>应用中心</h3>
+                    <p>专注于各种应用和服务，为用户提供多样化的需求。</p>
+                    <p>
+                        <span><i class="layui-icon layui-icon-username"></i>AUNya</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 应用表格卡片区域 -->
+<section  style="margin-top: 20px;margin-bottom: 50px;">
+    <div class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <table class="layui-table" style="margin-top:20px">
+                    <thead>
+                        <tr>
+                            <th><i class="layui-icon layui-icon-theme"></i> 标题</th>
+                            <th style="width:100px;text-align:center;"><i class="layui-icon layui-icon-console"></i> 操作</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <i class="layui-icon layui-icon-read" style="color:#1e9fff;margin-right: 3px;"></i>
+                                <a href="/">测试</a>
+                            </td>
+                            <td style="text-align:center;"><a class="layui-btn layui-btn-sm layui-btn-primary" href="/">详情</a></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚样式 -->
+<div class="footer">
+    <h3>AUNya - 奇妙世界</h3>
+    <p>© 2024-hitherto AUNya. All Rights Reserved. | Powered by tbnya.</p>
+</div>
+<!-- 引入联系 JS -->
+<script src="./static/js/contact.js"></script>
+<!-- 引入导航 JS -->
+<script src="./static/js/nav-menu.js"></script>
+<!-- 引入灯箱 JS -->
+<script src="./static/js/view-image.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 卡片悬停效果增强
+    const cards = document.querySelectorAll('.card, .links-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-6px)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.transition = 'transform 0.3s ease';
+        });
+    });
+});
+</script>
+<script>
+    console.log(
+        '%c                                                \n' +
+        '%c%c%c █████╗  ██╗   ██╗ ███╗   ██╗ ██╗   ██╗  █████╗ \n' +
+        '%c%c%c██╔══██╗ ██║   ██║ ████╗  ██║ ╚██╗ ██╔╝ ██╔══██╗\n' +
+        '%c%c%c███████║ ██║   ██║ ██╔██╗ ██║  ╚████╔╝  ███████║\n' +
+        '%c%c%c██╔══██║ ██║   ██║ ██║╚██╗██║   ╚██╔╝   ██╔══██║\n' +
+        '%c%c██║  ██║ ╚██████╔╝ ██║ ╚████║    ██║    ██║  ██║\n' +
+        '%c╚═╝  ╚═╝  ╚═════╝  ╚═╝  ╚═══╝    ╚═╝    ╚═╝  ╚═╝\n' +
+        '%c                                                \n' +
+        '        你好，用户！欢迎来到“AUNya - 奇妙世界”             \n' +
+        '%c        地址：https://lab.tbmiao.dpdns.org/              \n' +
+        '   ','color:#ff0000','color:#ff0000','color:#ff3b00','color:#ff7500','color:#ff7800','color:#FD7B00','color:#FFAD00','color: #FEDA00','color:#D0FD00','color:#93FF00','color:#80FF00','color:#1AFF00','color:#00FF2E','color:#00FF3B','color:#00FFB1','color:#00F2F9','color:#00E0F9')
+</script>
+</body>
+</html>
