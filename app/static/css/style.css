@@ -50,11 +50,11 @@ body {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: #1e9fff;
+    color: #8e44ad;
 }
 
 .logo a {
-    color: #1e9fff;
+    color: #ff69b4;
 }
 
 .logo img {
@@ -87,7 +87,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #1e9fff;
+    color: #8e44ad;
 }
 
 .nav-menu a::after {
@@ -97,7 +97,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #1e9fff;
+    background-color: #ff69b4;
     transition: width 0.3s;
 }
 
