@@ -1,16 +1,17 @@
 /* 妯箙鍖哄煙鏍峰紡 */
 .banner {
     height: 450px;
-    background: linear-gradient(135deg, #8e44ad 0%, #ff69b4 100%);
+    background: linear-gradient(135deg, #8d44ada8 0%, #ff69b4b4 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     padding-top: 70px;
     position: relative;
     overflow: hidden;
 }
+
 
 .banner::before {
     content: '';
@@ -107,7 +108,7 @@
 }
 
 .card {
-    background: #fff;
+    background: #ffffff83;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -159,7 +160,7 @@
 
 /* 鍙嬫儏閾炬帴鏍峰紡 */
 .links-section {
-    background-color: #f1f6f9;
+    background-color: #f1f6f900;
 }
 
 .links-container {
@@ -181,7 +182,7 @@
 }
 
 .links-card {
-    background: #fff;
+    background: #ffffff83;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
@@ -252,7 +253,7 @@
     .banner p {
         font-size: 18px;
     }
-}
+        }
 
 @media (max-width: 768px) {
     .card-col {

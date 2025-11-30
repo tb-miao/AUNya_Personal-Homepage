@@ -19,7 +19,21 @@ body {
     display: flex;
     flex-direction: column;
 }
-
+/* 二次元动漫背景 */
+        .anime-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/Home-page/HOME-pages/app/static/images/hatsune_miku_vocaloid_wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -3;
+            filter: blur(0px);
+        }
 /* 瀵艰埅鏍忔牱寮� */
 .header {
     position: fixed;
@@ -216,15 +230,17 @@ body {
     color: #1e9fff;
 }
 
-/* 椤佃剼鏍峰紡 */
-.footer {
-    background-color: #2C3E55;
-    color: white;
-    text-align: center;
-    padding: 1rem 1rem;
-    font-size: 1.0em;
-    margin-top: auto;
-}
+        /* 页脚 */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 192, 203, 0.1));
+            backdrop-filter: blur(45px);
+            border-radius: 20px;
+            color: #8e44ad;
+            box-shadow: 0 8px 32px rgba(255, 105, 180, 0.03);
+            border: 2px solid rgba(255, 255, 255, 0.06);
+        }
 
 .footer p {
     line-height: 1.6;
