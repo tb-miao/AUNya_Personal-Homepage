@@ -12,33 +12,40 @@ document.addEventListener('DOMContentLoaded', function() {
       return response.json();
     })
     .then(data => {
-      const commit = data[0];
-      const commitDate = new Date(commit.commit.author.date);
-      const formattedDate = commitDate.toLocaleString('zh-CN', {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
+      let allCommitsInfo = '';
+      
+      // 显示最近的10条提交信息
+      const commitsToShow = data.slice(0, 10);
+      
+      commitsToShow.forEach(commit => {
+        const commitDate = new Date(commit.commit.author.date);
+        const formattedDate = commitDate.toLocaleString('zh-CN', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        
+        const commitMessage = commit.commit.message;
+        const commitUrl = commit.html_url;
+        const commitSha = commit.sha.substring(0, 7);
+        const authorName = commit.commit.author.name;
+        
+        const commitInfo = `
+              <h3 style='color: #013cffff'><b>##### ${formattedDate}</b> - 
+              <a href='${commitUrl}' target='_blank'  style='color: #013cffff'>${commitSha}</a></h3>
+              <b style='color: #cc01ffff'>${commitMessage}</b><br>
+        `;
+        
+        allCommitsInfo += commitInfo;
       });
       
-      const commitMessage = commit.commit.message;
-      const commitAuthor = commit.commit.author.name;
-      const commitUrl = commit.html_url;
-      const commitSha = commit.sha.substring(0, 7);
-      
-      const commitInfo = `
-        <p>最后更新：
-          <strong><span class='date'>${formattedDate}</span></strong>，
-          <strong><a href='${commitUrl}' target='_blank'>${commitSha}</a></strong>，<br>
-          - <b>${commitMessage}</b>
-        </p>
-      `;
-      
-      gitInfoElement.innerHTML = commitInfo;
+      gitInfoElement.innerHTML = allCommitsInfo;
     })
     .catch(error => {
       console.error('获取GitHub提交信息失败:', error);
-      gitInfoElement.innerHTML = '<p>无法获取最新更新信息</p>';
+      gitInfoElement.innerHTML = '<p>无法获取更新信息</p>';
     });
+    console.log('JS加载成功')
 });
