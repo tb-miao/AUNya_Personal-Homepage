@@ -1,51 +1,62 @@
-// 显示git信息
-document.addEventListener('DOMContentLoaded', function() {
-  const gitInfoElement = document.getElementById('git-info');
-  
-  if (!gitInfoElement) return;
+  // 自动从 GitHub 拉取三个仓库的提交记录，并按仓库分组展示
+  const repos = [
+    { owner: 'tb-miao', repo: 'AstroBLOG', name: '该博客' },
+  ];
 
-  fetch('https://api.github.com/repos/tb-miao/AUNya_Personal-Homepage/commits')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      let allCommitsInfo = '';
-      
-      // 显示最近的10条提交信息
-      const commitsToShow = data.slice(0, 10);
-      
-      commitsToShow.forEach(commit => {
-        const commitDate = new Date(commit.commit.author.date);
-        const formattedDate = commitDate.toLocaleString('zh-CN', {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit'
+  async function fetchCommits() {
+    const container = document.getElementById('commit-container');
+    if (!container) return;
+    container.innerHTML = '正在加载...';
+
+    // 清空容器，准备按仓库分组
+    container.innerHTML = '';
+
+    // 计算三个月前的日期
+    const threeMonthsAgo = new Date();
+    threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+
+    for (const r of repos) {
+      const section = document.createElement('section');
+      section.innerHTML = `<h2 id="${r.repo}"># ${r.name}</h2><ul id="list-${r.repo}">加载中…</ul>`;
+      container.appendChild(section);
+
+      try {
+        const res = await fetch(`https://api.github.com/repos/${r.owner}/${r.repo}/commits?per_page=20`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!Array.isArray(data)) throw new Error('返回非数组');
+
+        const listEl = document.getElementById(`list-${r.repo}`);
+        listEl.innerHTML = '';
+
+        // 过滤条件：1. 不超过三个月前 2. 只取最近3条
+        const filteredCommits = data.filter(c => {
+          if (!c.commit || !c.commit.author) return false;
+          const commitDate = new Date(c.commit.author.date);
+          return commitDate >= threeMonthsAgo;
+        }).slice(0, 3);
+
+        // 仅展示符合条件的提交
+        filteredCommits.forEach(c => {
+          if (!c.html_url) return;
+          const li = document.createElement('li');
+          li.innerHTML = `${new Date(c.commit.author.date).toLocaleString('zh-CN')}<br/>
+                            <a href="${c.html_url}" target="_blank">${c.commit.message.split('\n')[0]}</a>`;
+          listEl.appendChild(li);
         });
-        
-        const commitMessage = commit.commit.message;
-        const commitUrl = commit.html_url;
-        const commitSha = commit.sha.substring(0, 7);
-        const authorName = commit.commit.author.name;
-        
-        const commitInfo = `
-              <h3 style='color: #013cffff'><b>##### ${formattedDate}</b> - 
-              <a href='${commitUrl}' target='_blank'  style='color: #013cffff'>${commitSha}</a></h3>
-              <b style='color: #cc01ffff'>${commitMessage}</b><br>
-        `;
-        
-        allCommitsInfo += commitInfo;
-      });
-      
-      gitInfoElement.innerHTML = allCommitsInfo;
-    })
-    .catch(error => {
-      console.error('获取GitHub提交信息失败:', error);
-      gitInfoElement.innerHTML = '<p>无法获取更新信息</p>';
-    });
-    console.log('JS加载成功')
-});
+
+        if (!filteredCommits.length) listEl.innerHTML = '暂无三个月内的提交记录';
+      } catch (e) {
+        console.error(`获取 ${r.name} 提交失败`, e);
+        document.getElementById(`list-${r.repo}`).innerHTML = '加载失败';
+      }
+    }
+  }
+
+  // 页面可见时刷新
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) fetchCommits();
+  });
+
+  // 首次加载
+  fetchCommits();
